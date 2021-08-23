@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: .5rem;
+}
+
+.positions {
+    width: 10rem;
+    height: 10rem;
+    background-color: thistle;
+    border: 2px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7rem;
+}
