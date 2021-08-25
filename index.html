@@ -6,26 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Mali:wght@500&family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
+    <div class="header">
+        <h1>Tic Tac Toe</h1>
+    </div>
 
     <div id="nameContainer">
-        <div id="player1Container">
-            <label for="player1">Player 1:</label>
+        <div id="playerOneContainer">
+            <label for="player1">Player X :</label>
             <input type="text" name="player1" id="player1" placeholder="Enter Name" required>
         </div>
 
-        <div id="player2Container">
-            <label for="player2">Player 2:</label>
+        <div id="playerTwoContainer">
+            <label for="player2">Player O :</label>
             <input type="text" name="player2" id="player2" placeholder="Enter Name" required>
         </div>
 
         <button id="startBtn">Start Game</button>
+
+        <div id="warningMessage"></div>
     </div>
 
-    <div id="game">
-        <div id="gameContainer">
+    <div id="gameContainer">
+        <div id="playerNames">
+            <div id="playerOneName"></div>
+            <div id="playerTwoName"></div>
+        </div>
+
+        <div id="positionContainer">
             <div id="position1" class="positions"></div>
             <div id="position2" class="positions"></div>
             <div id="position3" class="positions"></div>
@@ -36,6 +49,8 @@
             <div id="position8" class="positions"></div>
             <div id="position9" class="positions"></div>
         </div>
+
+        <div id="resultMessage"></div>
 
         <button id="restartBtn">Restart</button>
     </div>

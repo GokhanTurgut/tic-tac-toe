@@ -1,9 +1,26 @@
+
 const gameContainer = document.getElementById('gameContainer');
-const positions = Array.from(gameContainer.children);
+const positionContainer = document.getElementById('positionContainer');
+const positions = Array.from(positionContainer.children);
+
+const nameContainer = document.getElementById('nameContainer');
+const player1 = document.getElementById('player1');
+const player2 = document.getElementById('player2');
+const startBtn = document.getElementById('startBtn');
+const playerOneName = document.getElementById('playerOneName');
+const playerTwoName = document.getElementById('playerTwoName');
+const warningMessage = document.getElementById('warningMessage');
+const resultMessage = document.getElementById('resultMessage');
+const restartBtn = document.getElementById('restartBtn');
+
+
 
 gameBoard = new Array(9);
 
 let round = 1;
+
+let playerOne;
+let playerTwo;
 
 const Player = (name, playerNumber) => {
     const getName = () => name;
@@ -11,8 +28,44 @@ const Player = (name, playerNumber) => {
     return {getName, getPlayerNumber}
 }
 
-const player1 = Player('Gokhan', 1);
-const player2 = Player('Emira', 2);
+startBtn.addEventListener('click', startGame);
+restartBtn.addEventListener('click', restartGame);
+
+function startGame() {
+    if (player1.value && player2.value) {
+    playerOne = Player(player1.value, 1);
+    playerTwo = Player(player2.value, 2);
+    playerOneName.textContent = playerOne.getName();
+    playerTwoName.textContent = playerTwo.getName();
+    player1.value = '';
+    player2.value = '';
+    nameContainer.style.display = 'none';
+    gameContainer.style.display = 'flex';
+    }
+    else {
+        warningMessage.textContent = 'Please enter two names!';
+        return
+    }
+}
+
+function restartGame() {
+    gameBoard = [];
+    gameBoard.length = 9;
+    round = 1;
+    positions.forEach((position) => {
+        position.textContent = '';
+    })
+    playerOneName.style.backgroundColor = '#5680E9';
+    playerTwoName.style.backgroundColor = '#2A1B3D';
+    resultMessage.textContent = '';
+    positionContainer.style.display = 'grid';
+}
+
+function drawChecker() {
+    if (round === 9) {
+        resultMessage.textContent = `It's a tie!`;
+    }
+}
 
 positions.forEach((position, index) => {
     position.addEventListener('click', () => {
@@ -20,16 +73,28 @@ positions.forEach((position, index) => {
             if (round%2 === 0) {
                 position.textContent = 'O';
                 gameBoard[index] = 'O';
+                playerOneName.style.backgroundColor = '#5680E9';
+                playerTwoName.style.backgroundColor = '#2A1B3D';
                 if (gameChecker(index)) {
-                    console.log(`${player2.getName()} is won!`);
+                positionContainer.style.display = 'none';                   
+                resultMessage.textContent = `Congratulations ${playerTwo.getName()}, you have won!`;
+                playerOneName.style.backgroundColor = '#2A1B3D';
+                playerTwoName.style.backgroundColor = '#2A1B3D';
                 };
+                drawChecker();
             }
             else {
                 position.textContent = 'X';
                 gameBoard[index] = 'X';
+                playerOneName.style.backgroundColor = '#2A1B3D';
+                playerTwoName.style.backgroundColor = '#5680E9';
                 if (gameChecker(index)) {
-                    console.log(`${player1.getName()} is won!`);
+                positionContainer.style.display = 'none';                   
+                resultMessage.textContent = `Congratulations ${playerOne.getName()}, you have won!`;
+                playerOneName.style.backgroundColor = '#2A1B3D';
+                playerTwoName.style.backgroundColor = '#2A1B3D';
                 };
+                drawChecker();
             }
             round++;
         }       

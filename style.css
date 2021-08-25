@@ -4,22 +4,124 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #2A1B3D;
+}
+
+.header {
+    background-color: #44318D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.header > h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin: 0;
+    color: #D83F87;
+}
+
+#nameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    font-family: 'Lobster', cursive;
+    color: #D83F87;
+    font-size: 2rem;
+}
+
+#playerOneContainer, #playerTwoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#player1, #player2 {
+    margin-left: 1rem;
+    width: 10rem;
+    height: 1.8rem;
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+}
+
+#startBtn {
+    width: 10rem;
+    height: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+button {
+    font-family: 'Lobster', cursive;
+    width: 7rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    color: #D83F87;
+    background-color: #84CEEB;
+    border: none;
+    border-radius: 2rem;
+}
+
+button:hover {
+    background-color: #5680E9;
 }
 
 #gameContainer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#playerNames {
+    font-family: 'Pacifico', cursive;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #D83F87;
+}
+
+#playerOneName {
+    background-color: #5680E9;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+#playerTwoName {
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+#positionContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: .5rem;
+    gap: .8rem;
+    background-color: #C1C8E4;
 }
 
 .positions {
     width: 10rem;
     height: 10rem;
-    background-color: thistle;
-    border: 2px black solid;
+    background-color: #2A1B3D;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 7rem;
+    font-family: 'Mali', cursive;
+    color: #D83F87;
+}
+
+#resultMessage {
+    font-family: 'Lobster', cursive;
+    color: #D83F87;
+    font-size: 2.5rem;
+    margin: 2rem;
 }
